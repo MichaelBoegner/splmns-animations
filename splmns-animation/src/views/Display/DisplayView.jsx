@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import CharacterSpawner from "../../components/CharacterSpawner";
 import RainOverlay from "../../components/RainOverlay";
 

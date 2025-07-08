@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function SubmitView() {
   const [name, setName] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = () => {
     const nameTrimmed = name.trim();
