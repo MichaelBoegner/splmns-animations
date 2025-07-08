@@ -1,0 +1,31 @@
+@keyframes ground-walk {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -288px 0; /* 6 frames × 48px */
+  }
+}
+
+@keyframes air-fly {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -192px 0; /* 6 frames × 32px */
+  }
+}
+
+.sprite-ground {
+  width: 48px;
+  height: 48px;
+  background-repeat: no-repeat;
+  animation: ground-walk 0.6s steps(6) infinite;
+}
+
+.sprite-air {
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  animation: air-fly 0.6s steps(6) infinite;
+}
