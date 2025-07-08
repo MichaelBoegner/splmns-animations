@@ -19,7 +19,7 @@
   animation: fall linear infinite;
   animation-duration: calc(0.75s + 0.75s * var(--d));
   animation-delay: calc(-1s * var(--d));
-  transform: translateY(0);
+  transform: translate(0,0);
 }
 
 
