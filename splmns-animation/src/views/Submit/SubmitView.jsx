@@ -9,11 +9,18 @@ function SubmitView() {
     const nameTrimmed = name.trim();
     if (!nameTrimmed) return;
 
-    localStorage.setItem("name", nameTrimmed);
+    const names = JSON.parse(localStorage.getItem("names") || "[]");
+
+    if (!names.includes(nameTrimmed)) {
+      names.push(nameTrimmed);
+      if (names.length > 5) names.shift();
+      localStorage.setItem("names", JSON.stringify(names));
+    }
 
     const channel = new BroadcastChannel("name_channel");
     channel.postMessage(nameTrimmed);
     channel.close();
+
     setName("");
   };
 
