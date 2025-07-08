@@ -21,8 +21,6 @@ function Character({ name, type, motionParams }) {
     >
       <div
         style={{
-          marginTop: "0.25rem",
-          background: "rgba(0,0,0,0.7)",
           color: "#fff",
           padding: "0.25rem 0.5rem",
           borderRadius: "4px",
