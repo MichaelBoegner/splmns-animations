@@ -8,7 +8,7 @@ export function generateMotionParams(movement = "ground") {
   if (movement === "air") {
     y = -800;
   } else {
-    y = -400;
+    y = -205;
   }
 
   return {
