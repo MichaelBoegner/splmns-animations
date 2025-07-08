@@ -1,4 +1,7 @@
 .display {
-    text-align: "center";
-    margin-top: "2rem";
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
 }
