@@ -12,7 +12,6 @@ function DisplayView() {
       const receivedName = event.data;
       if (typeof receivedName === "string") {
         setName(receivedName);
-        localStorage.setItem("name", receivedName);
       }
     };
 
