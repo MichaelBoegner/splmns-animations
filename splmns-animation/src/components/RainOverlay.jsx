@@ -2,7 +2,7 @@ import "./RainOverlay.css";
 
 function RainOverlay() {
   const drops = Array.from(
-    { length: 75 },
+    { length: 77 },
     () => Math.floor(Math.random() * 100) + 1
   );
 
@@ -11,7 +11,7 @@ function RainOverlay() {
   return (
     <div className="rain-overlay">
       {drops.map((i, index) => {
-        const x = 0.01 * i;
+        const x = 0.01 * i * 1.2;
         const d = (i % 10) / 10;
         return (
           <div
