@@ -9,9 +9,6 @@ function DisplayView() {
     <div className="display">
       <RainOverlay />
       <CharacterSpawner />
-      <button onClick={() => navigate("/submit")} className="button-switch">
-        Back
-      </button>
     </div>
   );
 }

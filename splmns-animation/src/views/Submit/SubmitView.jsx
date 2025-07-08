@@ -37,9 +37,6 @@ function SubmitView() {
       <button className="button-switch" onClick={handleSubmit}>
         Submit
       </button>
-      <button className="button-switch" onClick={() => navigate("/display")}>
-        Go to Display
-      </button>
     </div>
   );
 }
