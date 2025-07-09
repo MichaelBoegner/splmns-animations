@@ -16,7 +16,7 @@ function Character({ name, type, motionParams }) {
         flexDirection: "column",
         alignItems: "center",
         pointerEvents: "none",
-        zIndex: 1,
+        zIndex: 75,
       }}
     >
       <div

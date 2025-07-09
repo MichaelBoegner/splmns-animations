@@ -4,10 +4,9 @@ import "./DisplayView.css";
 
 function DisplayView() {
   return (
-    <div>
+    <div className="display">
       <RainOverlay />
       <CharacterSpawner />
-      <div className="ground-line" />
     </div>
   );
 }
