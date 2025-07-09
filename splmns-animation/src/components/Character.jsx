@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import "./Sprite.css";
+import "./Character.css";
 
 function Character({ name, type, motionParams }) {
   const className = type.movement === "ground" ? "sprite-ground" : "sprite-air";
@@ -19,16 +20,7 @@ function Character({ name, type, motionParams }) {
         zIndex: 75,
       }}
     >
-      <div
-        style={{
-          color: "#fff",
-          padding: "0.25rem 0.5rem",
-          borderRadius: "4px",
-          fontSize: "0.8rem",
-        }}
-      >
-        {name}
-      </div>
+      <div className="name">{name}</div>
       <div
         className={className}
         style={{

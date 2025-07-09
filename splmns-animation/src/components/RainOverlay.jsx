@@ -10,7 +10,7 @@ function RainOverlay() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const numDrops = 400;
+    const numDrops = 500;
 
     const dropsWhite = Array.from({ length: numDrops }, () => ({
       x: Math.random() * canvas.width,
@@ -33,15 +33,15 @@ function RainOverlay() {
         x: Math.random() * canvas.width,
         y: canvas.height - 10,
         arcs: Array.from({ length: 3 }, () => ({
-          angle: (Math.random() * 90 - 45) * (Math.PI / 180),
-          distance: 20 + Math.random() * 20,
+          angle: (Math.random() * 180 - 90) * (Math.PI / 180),
+          distance: 50 + Math.random() * 40,
           age: 0,
-          maxAge: 10,
+          maxAge: 1,
         })),
         color: Math.random() < 0.5 ? "white" : "blue",
       };
       splashes.push(splash);
-      if (splashes.length > 30) splashes.shift();
+      if (splashes.length > 70) splashes.shift();
     }
 
     const splashInterval = setInterval(spawnSplash, 50);
@@ -52,7 +52,7 @@ function RainOverlay() {
       [...dropsWhite, ...dropsBlue].forEach((drop) => {
         ctx.beginPath();
         ctx.strokeStyle = drop.color;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 4.5;
         ctx.moveTo(drop.x, drop.y);
         ctx.lineTo(drop.x, drop.y + 10);
         ctx.stroke();
@@ -68,8 +68,8 @@ function RainOverlay() {
         splash.arcs.forEach((arc) => {
           const progress = arc.age / arc.maxAge;
           const dist = arc.distance * progress;
-          const x = splash.x + dist * Math.cos(arc.angle);
-          const y = splash.y - dist * Math.sin(arc.angle);
+          const x = splash.x + dist * Math.cos(arc.angle) * 0.007;
+          const y = splash.y - dist * Math.sin(arc.angle) * 0.001;
 
           ctx.beginPath();
           ctx.fillStyle = splash.color;
