@@ -1,6 +1,9 @@
 .character {
+    border: 10px solid grey;
     pointer-events: "none";
-    }
+}
+
+
 
 .name {
     color: #fff;

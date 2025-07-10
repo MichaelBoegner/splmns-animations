@@ -1,15 +1,18 @@
 .display {
-  border: 10px solid gold;
+  /* border: 10px solid gold; */
   overflow: hidden;
   background-color: #0b0f30;
   height: 100%;
+  min-width: 100vw;
   width: 100%;
   margin: 0;
   padding: 0;
-
+  position: relative;
+  flex: 1;
 }
 
 .rain-overlay-front {
+  /* border: 10px solid blue; */
   position: absolute;
   top: 0;
   left: 0;

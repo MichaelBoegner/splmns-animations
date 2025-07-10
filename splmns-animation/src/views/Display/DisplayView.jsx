@@ -1,6 +1,6 @@
 import CharacterSpawner from "../../components/CharacterSpawner";
-import RainOverlay from "../../components/RainOverlay";
-import RainOverlay2 from "../../components/RainOverlay2";
+import RainOverlay from "../../components/RainOverlayFront";
+import RainOverlay2 from "../../components/RainOverlayBack";
 import "./DisplayView.css";
 
 function DisplayView() {

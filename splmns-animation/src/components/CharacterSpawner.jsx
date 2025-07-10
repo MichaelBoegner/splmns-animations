@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Character from "./Character";
 import { characterTypes } from "../data/characterTypes";
 import { generateMotionParams } from "../utils/generateAnimateParams";
+import "./CharacterSpawner.css";
 
 function CharacterSpawner() {
   const [characters, setCharacters] = useState([]);
@@ -40,7 +41,7 @@ function CharacterSpawner() {
   }, []);
 
   return (
-    <div className="character-spawner">
+    <div className="character-spawner-div">
       {characters.map((char) => (
         <Character
           key={char.id}
