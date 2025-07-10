@@ -2,11 +2,11 @@ export function generateMotionParams(movement = "ground") {
   const screenWidth = window.innerWidth;
 
   let y,
-    startX = 0,
+    startX = -300,
     endX = screenWidth + 300;
 
   if (movement === "air") {
-    y = -150;
+    y = -250;
   } else {
     y = -70;
   }
