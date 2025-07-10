@@ -1,15 +1,25 @@
+.aspect-wrapper {
+  /* border: 10px solid navajowhite; */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .display {
   /* border: 10px solid gold; */
-  overflow: hidden;
-  background-color: #0b0f30;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   min-width: 100vw;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  flex: 1;
+  min-width: 100%;
+  max-height: 100%;
+  background-color: #0b0f30;
+  position: absolute;
+  overflow: hidden;
 }
+
 
 .rain-overlay-front {
   /* border: 10px solid blue; */
