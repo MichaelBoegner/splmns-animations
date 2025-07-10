@@ -1,4 +1,37 @@
 .display {
-      background-color: #0b0f30;
-      z-index: 1;
+  border: 10px solid gold;
+  overflow: hidden;
+  background-color: #0b0f30;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+.rain-overlay-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.rain-overlay-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.character-spawner {
+  position: absolute;
+  z-index: 75;
+  width: 100%;
+  height: 100%;
 }

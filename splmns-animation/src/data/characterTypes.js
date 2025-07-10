@@ -4,7 +4,7 @@ export const characterTypes = [
     label: "dog",
     asset: "/assets/sprites/Dog1Walk.png",
     speed: 40,
-    scale: 2.0,
+    scale: 20,
     movement: "ground",
   },
   {
@@ -12,7 +12,7 @@ export const characterTypes = [
     label: "cat",
     asset: "/assets/sprites/Cat1Walk.png",
     speed: 40,
-    scale: 2.1,
+    scale: 21,
     movement: "ground",
   },
   {
@@ -20,7 +20,7 @@ export const characterTypes = [
     label: "bird",
     asset: "/assets/sprites/Bird1Fly.png",
     speed: 40,
-    scale: 2.2,
+    scale: 22,
     movement: "air",
   },
 ];

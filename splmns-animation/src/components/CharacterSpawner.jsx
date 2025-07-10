@@ -40,7 +40,7 @@ function CharacterSpawner() {
   }, []);
 
   return (
-    <>
+    <div className="character-spawner">
       {characters.map((char) => (
         <Character
           key={char.id}
@@ -49,7 +49,7 @@ function CharacterSpawner() {
           motionParams={char.motionParams}
         />
       ))}
-    </>
+    </div>
   );
 }
 

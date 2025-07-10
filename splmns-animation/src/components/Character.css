@@ -1,5 +1,10 @@
+.character {
+    pointer-events: "none";
+    }
+
 .name {
     color: #fff;
+    position: absolute;
     padding: 0.15rem 0.5rem;
     border-radius: 40%;
     border: 3px solid lightblue;

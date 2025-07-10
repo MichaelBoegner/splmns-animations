@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,11 +27,11 @@ a:hover {
 }
 
 body {
+  border: 10px solid brown;
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 h1 {
@@ -65,11 +69,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-
-html, body {
-  overflow: hidden;
-  width: 100%;
-  max-width: 100%;
 }

@@ -10,15 +10,7 @@ function Character({ name, type, motionParams }) {
       initial={{ x: motionParams.startX, y: motionParams.y }}
       animate={{ x: motionParams.endX }}
       transition={{ duration: type.speed, ease: "linear" }}
-      style={{
-        position: "absolute",
-        bottom: 0,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        pointerEvents: "none",
-        zIndex: 75,
-      }}
+      className="character"
     >
       <div className="name">{name}</div>
       <div
