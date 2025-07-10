@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import "./RainOverlayBack.css";
+import "./RainOverlay.css";
 
-function RainOverlay2() {
+function RainOverlay() {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -83,10 +83,10 @@ function RainOverlay2() {
   }, []);
 
   return (
-    <div className="rain-canvas-back">
+    <div className="rain-canvas">
       <canvas ref={canvasRef} />
     </div>
   );
 }
 
-export default RainOverlay2;
+export default RainOverlay;

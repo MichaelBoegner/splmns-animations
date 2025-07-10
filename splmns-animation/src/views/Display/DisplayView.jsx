@@ -1,6 +1,5 @@
 import CharacterSpawner from "../../components/CharacterSpawner";
-import RainOverlay from "../../components/RainOverlayFront";
-import RainOverlay2 from "../../components/RainOverlayBack";
+import RainOverlay from "../../components/RainOverlay";
 import "./DisplayView.css";
 
 function DisplayView() {
@@ -13,7 +12,7 @@ function DisplayView() {
         <CharacterSpawner />
       </div>
       <div className="rain-overlay-back">
-        <RainOverlay2 />
+        <RainOverlay />
       </div>
     </div>
   );
