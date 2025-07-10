@@ -17,6 +17,7 @@
 }
 
 .sprite-ground {
+  /* border: 4px solid navy; */
   width: 48px;
   height: 48px;
   background-repeat: no-repeat;
@@ -24,6 +25,7 @@
 }
 
 .sprite-air {
+  /* border: 1px solid navy; */
   width: 32px;
   height: 32px;
   background-repeat: no-repeat;

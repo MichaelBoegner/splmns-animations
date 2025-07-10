@@ -3,12 +3,12 @@ export function generateMotionParams(movement = "ground") {
 
   let y,
     startX = 0,
-    endX = screenWidth;
+    endX = screenWidth + 300;
 
   if (movement === "air") {
-    y = 0;
+    y = -150;
   } else {
-    y = 0;
+    y = -70;
   }
 
   return {
