@@ -32,8 +32,8 @@ function SubmitView() {
           playfulness one experiences when playing in the rain.
           <br />
           <br />
-          The piece was imagined by eccentric interactive artist **Marlo Vens**,
-          a reclusive creative known for turning everyday phenomena into moments
+          The piece was imagined by eccentric interactive artist Marlo Vens, a
+          reclusive creative known for turning everyday phenomena into moments
           of personal magic. After a residency in northern Iceland where rain
           would fall for days on end, Marlo began recording the sound of puddle
           splashes, coding particle systems to mimic droplets, and sketching
