@@ -1,4 +1,4 @@
-.aspect-wrapper {
+.aspect-ratio {
   /* border: 10px solid navajowhite; */
   position: relative;
   width: 100vw;
@@ -12,7 +12,6 @@
 .display {
   /* border: 10px solid gold; */
   aspect-ratio: 16 / 9;
-  min-width: 100vw;
   min-width: 100%;
   max-height: 100%;
   background-color: #0b0f30;
