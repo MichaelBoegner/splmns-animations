@@ -1,14 +1,79 @@
-.submit {
-    border: 10px solid gold;
+.submit-view {
+    position: relative;
+    width: 100vw;
     height: 100vh;
+    background: #0b0f30; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.submit-terminal {
+    border: 4px solid #4a90e2;
+    box-shadow: 0 0 10px #4a90e2;
+    border-radius: 1.5%;
+    max-width: 40rem;
+    padding: 2rem;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    justify-items: center;
     gap: 1rem;
+    animation: pulse 2s infinite ease-in-out;
+    background: rgba(12, 20, 40, 0.85); /* Adds depth */
+    backdrop-filter: blur(5px);
+    font-family: 'Quicksand', sans-serif;
 }
 
-.submit-input {
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px #4a90e2; }
+    50% { box-shadow: 0 0 20px #4a90e2; }
+}
+
+.submit-terminal h1 {
+    color:#4a90e2;
+    text-shadow: 0 0 5px #4a90e2aa;
+    letter-spacing: 0.05em;
+}
+
+.submit-terminal p {
+    text-align: left;
+}
+
+.submit-terminal input{ 
+    border: 1px solid #d0e7ff;
+    width: 30rem;
+    height: 2rem;
     font-size: 1.2rem; 
     padding: 0.5rem;
 }
+
+.submit-terminal input::placeholder {
+  color: #88b4e7;
+}
+
+.submit-terminal input:focus {
+  border-color: #88b4e7;
+}
+
+.submit-terminal button {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #4a90e2;
+  color: #4a90e2;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.submit-terminal button:hover {
+  background: #4a90e2;
+  color: #000;
+}
+
+
