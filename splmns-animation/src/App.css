@@ -1,15 +1,12 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
   text-align: center;
+}
+
+.app {
+  /* border: 10px solid blue; */
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
-
-.button-switch {
-  position: "absolute";
-  top: 16;
-  left: 16;
-  padding: "8px 12px";
-}
-

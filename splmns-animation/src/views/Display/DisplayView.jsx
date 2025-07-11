@@ -1,39 +1,21 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import CharacterSpawner from "../../components/CharacterSpawner";
+import RainOverlay from "../../components/RainOverlay";
+import "./DisplayView.css";
 
 function DisplayView() {
-  const [names, setNames] = useState(() => {
-    return JSON.parse(localStorage.getItem("names") || "[]");
-  });
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const channel = new BroadcastChannel("name_channel");
-
-    channel.onmessage = () => {
-      const updated = JSON.parse(localStorage.getItem("names") || "[]");
-      setNames(updated);
-      console.log("Names updated via broadcast: ", updated);
-    };
-
-    return () => {
-      channel.close();
-    };
-  }, []);
-
   return (
-    <div className="display">
-      <h1>Submitted Names</h1>
-      {names.map((name, index) => (
-        <div key={index}>
-          <p>{name}</p>
-          <div>Animation for {name}</div>
+    <div className="aspect-ratio">
+      <div className="display">
+        <div className="rain-overlay-front">
+          <RainOverlay />
         </div>
-      ))}
-      <button onClick={() => navigate("/submit")} className="button-switch">
-        Back
-      </button>
+        <div className="character-spawner">
+          <CharacterSpawner />
+        </div>
+        <div className="rain-overlay-back">
+          <RainOverlay />
+        </div>
+      </div>
     </div>
   );
 }

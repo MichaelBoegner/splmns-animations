@@ -1,4 +1,49 @@
+.aspect-ratio {
+  /* border: 10px solid navajowhite; */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .display {
-    text-align: "center";
-    margin-top: "2rem";
+  /* border: 10px solid gold; */
+  aspect-ratio: 16 / 9;
+  min-width: 100%;
+  max-height: 100%;
+  background-color: #0b0f30;
+  position: absolute;
+  overflow: hidden;
+}
+
+
+.rain-overlay-front {
+  /* border: 10px solid blue; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.rain-overlay-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.character-spawner {
+  position: absolute;
+  z-index: 75;
+  width: 100%;
+  height: 100%;
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function SubmitView() {
   const [name, setName] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = () => {
     const nameTrimmed = name.trim();
@@ -31,14 +29,14 @@ function SubmitView() {
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleSubmit();
+        }}
         placeholder="Your name"
         className="submit-input"
       />
       <button className="button-switch" onClick={handleSubmit}>
         Submit
-      </button>
-      <button className="button-switch" onClick={() => navigate("/display")}>
-        Go to Display
       </button>
     </div>
   );
