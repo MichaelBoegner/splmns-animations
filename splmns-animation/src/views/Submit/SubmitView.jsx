@@ -28,7 +28,7 @@ function SubmitView() {
       <div className="submit-terminal">
         <h1>Rainy Days</h1>
         <p>
-          Rainy Days is a an effort to recreate the freedom, whimsy, and
+          Rainy Days is an effort to recreate the freedom, whimsy, and
           playfulness one experiences when playing in the rain.
           <br />
           <br />

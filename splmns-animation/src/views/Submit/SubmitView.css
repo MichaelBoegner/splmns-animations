@@ -16,12 +16,10 @@
     border-radius: 1.5%;
     max-width: 40rem;
     padding: 2rem;
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    justify-items: center;
     gap: 1rem;
     animation: pulse 2s infinite ease-in-out;
     background: rgba(12, 20, 40, 0.85); /* Adds depth */
