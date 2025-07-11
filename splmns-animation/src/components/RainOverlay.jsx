@@ -11,7 +11,7 @@ function RainOverlay() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const numDrops = 300;
+    const numDrops = 150;
     const drops = Array.from({ length: numDrops }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
