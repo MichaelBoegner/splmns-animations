@@ -11,16 +11,24 @@ function CharacterSpawner() {
 
     channel.onmessage = (e) => {
       const name = e.data;
-      const type =
-        characterTypes[Math.floor(Math.random() * characterTypes.length)];
-
-      const newCharacter = {
-        id: crypto.randomUUID(),
-        name,
-        type,
-      };
 
       setCharacters((prev) => {
+        const inUseTypes = prev.map((c) => c.type);
+        const availableTypes = characterTypes.filter(
+          (type) => !inUseTypes.includes(type)
+        );
+
+        if (availableTypes.length === 0) return prev;
+
+        const type =
+          availableTypes[Math.floor(Math.random() * availableTypes.length)];
+
+        const newCharacter = {
+          id: crypto.randomUUID(),
+          name,
+          type,
+        };
+
         const updated = [...prev, newCharacter];
         return updated.slice(-5);
       });
