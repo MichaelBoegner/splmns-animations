@@ -23,16 +23,9 @@ function Character({ name, type, motionParams }) {
   });
 
   useEffect(() => {
-    let controls = animate(x, motionParams.endX, {
+    const controls = animate(x, motionParams.endX, {
       duration: type.speed,
       ease: "linear",
-      repeat: Infinity,
-      repeatType: "loop",
-      onUpdate: () => {
-        if (x.get() >= motionParams.endX) {
-          x.set(motionParams.startX);
-        }
-      },
     });
 
     return () => controls.stop();
