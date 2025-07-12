@@ -23,17 +23,19 @@ function Character({ name, type, motionParams }) {
   });
 
   useEffect(() => {
-    const loop = () => {
-      animate(x, motionParams.endX, {
-        duration: type.speed,
-        ease: "linear",
-        onComplete: () => {
+    let controls = animate(x, motionParams.endX, {
+      duration: type.speed,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "loop",
+      onUpdate: () => {
+        if (x.get() >= motionParams.endX) {
           x.set(motionParams.startX);
-          loop();
-        },
-      });
-    };
-    loop();
+        }
+      },
+    });
+
+    return () => controls.stop();
   }, [x, motionParams.startX, motionParams.endX, type.speed]);
 
   const className = type.movement === "ground" ? "sprite-ground" : "sprite-air";

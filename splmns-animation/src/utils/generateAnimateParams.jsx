@@ -6,9 +6,9 @@ export function generateMotionParams(movement = "ground") {
     endX = screenWidth + 300;
 
   if (movement === "air") {
-    y = -250;
+    y = -200;
   } else {
-    y = -70;
+    y = 50;
   }
 
   return {
