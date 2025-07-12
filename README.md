@@ -4,7 +4,7 @@ This is my submission for the SPLMNS Frontend Developer technical challenge. The
 
 ---
 
-## 🔹 View 1 – Submit Interface
+## View 1 – Submit Interface
 
 Accessible at `/submit`
 
@@ -14,7 +14,7 @@ Accessible at `/submit`
 
 ---
 
-## 🔹 View 2 – Animated Display
+## View 2 – Animated Display
 
 Accessible at `/display`
 
@@ -27,7 +27,7 @@ Accessible at `/display`
 
 ---
 
-## 🧪 Tech Stack
+## Tech Stack
 
 - **React 19**
 - **Framer Motion 12** – DOM-based character animation
@@ -38,7 +38,7 @@ Accessible at `/display`
 
 ---
 
-## ⚙️ Performance Notes
+## Performance Notes
 
 - Animation is capped to 5 characters at a time.
 - Rain and splash loops are optimized with aging/removal of splash particles.
@@ -47,13 +47,13 @@ Accessible at `/display`
 
 ---
 
-## 🤖 AI Tools Used
+## AI Tools Used
 
 - **ChatGPT-4**: Assisted with boilerplate code, refining motion paths (flying arc), optimizing rendering performance, and writing this readme ^_^.
 
 ---
 
-## 🛠️ Running Locally
+## Running Locally
 
 ```bash
 npm install
