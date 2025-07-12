@@ -49,7 +49,9 @@ function RainOverlay() {
 
         drop.y += drop.speed;
         if (drop.y > canvas.height) {
-          spawnSplash(drop.x, canvas.height, drop.color);
+          if (Math.random() < 0.75) {
+            spawnSplash(drop.x, canvas.height, drop.color);
+          }
           drop.y = -10;
           drop.x = Math.random() * canvas.width;
         }
