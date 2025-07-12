@@ -1,4 +1,4 @@
-# SPLMNS Animation Challenge – Submission by Michael Boegner
+# SPLMNS Animation Challenge 
 
 This is my submission for the SPLMNS Frontend Developer technical challenge. The app includes two views:
 
