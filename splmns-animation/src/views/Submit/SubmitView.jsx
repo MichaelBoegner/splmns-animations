@@ -54,7 +54,13 @@ function SubmitView() {
           }}
           placeholder="Enter a name or a short phrase"
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <button
+          onClick={handleSubmit}
+          disabled={cooldown}
+          className={cooldown ? "cooldown" : ""}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );
