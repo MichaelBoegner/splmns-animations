@@ -3,24 +3,19 @@ import "./SubmitView.css";
 
 function SubmitView() {
   const [name, setName] = useState("");
+  const [cooldown, setCooldown] = useState(false);
 
   const handleSubmit = () => {
     const nameTrimmed = name.trim();
-    if (!nameTrimmed) return;
-
-    const names = JSON.parse(localStorage.getItem("names") || "[]");
-
-    if (!names.includes(nameTrimmed)) {
-      names.push(nameTrimmed);
-      if (names.length > 5) names.shift();
-      localStorage.setItem("names", JSON.stringify(names));
-    }
+    if (!nameTrimmed || nameTrimmed.length > 40 || cooldown) return;
 
     const channel = new BroadcastChannel("name_channel");
     channel.postMessage(nameTrimmed);
     channel.close();
 
     setName("");
+    setCooldown(true);
+    setTimeout(() => setCooldown(false), 1700);
   };
 
   return (
@@ -52,6 +47,7 @@ function SubmitView() {
         <input
           type="text"
           value={name}
+          maxLength={20}
           onChange={(e) => setName(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSubmit();
