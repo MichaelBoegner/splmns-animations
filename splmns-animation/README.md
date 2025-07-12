@@ -42,7 +42,7 @@ Accessible at `/display`
 
 - Animation is capped to 5 characters at a time.
 - Rain and splash loops are optimized with aging/removal of splash particles.
-- When running two browser window simultaneously, slight frame drops may occur due to total browser rendering load. Debugging has shown that this appears to be due to something with the `RainOverlay.jsx` implmentation, though I thought, initially, that it had to do with using Framer Motion for character animation. 
+- When running two browser windows simultaneously, slight frame drops may occur due to total browser rendering load. Debugging has shown that this appears to be due to something with the `RainOverlay.jsx` implementation, though I thought, initially, that it had to do with using Framer Motion for character animation. 
 - A future version will try reducing draw frame rate for `RainOverlay.jsx` and converting character animation to Canvas. 
 
 ---
