@@ -11,6 +11,7 @@ function Character({ name, type }) {
   const arcY = useTransform(theta, (t) => amplitude * Math.sin(t));
   const className = type.movement === "ground" ? "sprite-ground" : "sprite-air";
   const y = type.movement === "air" ? arcY : 75;
+
   const rotation = useTransform(theta, (t) => {
     const slope = amplitude * Math.cos(t);
     const dx = endX - startX;
@@ -20,12 +21,23 @@ function Character({ name, type }) {
   });
 
   useEffect(() => {
-    const controls = animate(x, endX, {
-      duration: type.speed,
-      ease: "linear",
-    });
+    let isMounted = true;
 
-    return () => controls.stop();
+    const loopAnimation = async () => {
+      while (isMounted) {
+        x.set(startX);
+        await animate(x, endX, {
+          duration: type.speed,
+          ease: "linear",
+        }).finished;
+      }
+    };
+
+    loopAnimation();
+
+    return () => {
+      isMounted = false;
+    };
   }, [x, startX, endX, type.speed]);
 
   return (
