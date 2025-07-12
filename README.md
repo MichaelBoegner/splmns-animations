@@ -42,8 +42,12 @@ Accessible at `/display`
 
 - Animation is capped to 5 characters at a time.
 - Rain and splash loops are optimized with aging/removal of splash particles.
-- When running two browser windows simultaneously, slight frame drops may occur due to total browser rendering load. Debugging has shown that this appears to be due to something with the `RainOverlay.jsx` implementation, though I thought, initially, that it had to do with using Framer Motion for character animation. 
-- A future version will try reducing draw frame rate for `RainOverlay.jsx` and converting character animation to Canvas. 
+- You may experience degraded performance on older machines, especially when multiple browser windows are open. For example, running this on my 2019 Intel Macbook results in some lag, but running it on my 2023 M2 Pro results in flawless animation.
+
+### If you encounter jittering or lag:
+- Try running the app in a single Chrome window
+- Close unnecessary background tabs
+- Disable Chrome hardware acceleration (in rare cases)
 
 ---
 
