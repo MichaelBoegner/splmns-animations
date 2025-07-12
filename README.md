@@ -67,6 +67,6 @@ Then visit:
 
 ## Deployment
 
-Submit: [https://rainydays-two.vercel.app/submit](https://rainydays-two.vercel.app/submit)
-Display: [https://rainydays-two.vercel.app/display](https://rainydays-two.vercel.app/display)
+- Submit: [https://rainydays-two.vercel.app/submit](https://rainydays-two.vercel.app/submit)
+- Display: [https://rainydays-two.vercel.app/display](https://rainydays-two.vercel.app/display)
 
