@@ -7,7 +7,7 @@ function RainOverlay() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-
+    const splashProbabilty = 0.75;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -49,7 +49,9 @@ function RainOverlay() {
 
         drop.y += drop.speed;
         if (drop.y > canvas.height) {
-          spawnSplash(drop.x, canvas.height, drop.color);
+          if (Math.random() < splashProbabilty) {
+            spawnSplash(drop.x, canvas.height, drop.color);
+          }
           drop.y = -10;
           drop.x = Math.random() * canvas.width;
         }

@@ -1,34 +1,23 @@
 import { useEffect, useState } from "react";
 import Character from "./Character";
 import { characterTypes } from "../data/characterTypes";
-import { generateMotionParams } from "../utils/generateAnimateParams";
 import "./CharacterSpawner.css";
 
 function CharacterSpawner() {
   const [characters, setCharacters] = useState([]);
-  const [_, setNames] = useState(() => {
-    return JSON.parse(localStorage.getItem("names") || "[]");
-  });
 
   useEffect(() => {
     const channel = new BroadcastChannel("name_channel");
 
     channel.onmessage = (e) => {
-      const updated = JSON.parse(localStorage.getItem("names") || "[]");
-      setNames(updated);
-      console.log("Names updated via broadcast: ", updated);
-
       const name = e.data;
       const type =
         characterTypes[Math.floor(Math.random() * characterTypes.length)];
-
-      const motionParams = generateMotionParams(type.movement);
 
       const newCharacter = {
         id: crypto.randomUUID(),
         name,
         type,
-        motionParams,
       };
 
       setCharacters((prev) => {
@@ -43,12 +32,7 @@ function CharacterSpawner() {
   return (
     <div className="character-spawner-div">
       {characters.map((char) => (
-        <Character
-          key={char.id}
-          name={char.name}
-          type={char.type}
-          motionParams={char.motionParams}
-        />
+        <Character key={char.id} name={char.name} type={char.type} />
       ))}
     </div>
   );
