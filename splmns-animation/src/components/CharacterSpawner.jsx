@@ -8,6 +8,7 @@ function CharacterSpawner() {
 
   useEffect(() => {
     const channel = new BroadcastChannel("name_channel");
+    const maxCharacters = 5;
 
     channel.onmessage = (e) => {
       const name = e.data;
@@ -48,7 +49,7 @@ function CharacterSpawner() {
           updated[indexToReplace] = newCharacter;
         }
 
-        return updated.slice(-5);
+        return updated.slice(-maxCharacters);
       });
     };
 
