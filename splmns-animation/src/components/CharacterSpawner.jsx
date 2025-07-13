@@ -13,23 +13,41 @@ function CharacterSpawner() {
       const name = e.data;
 
       setCharacters((prev) => {
-        const inUseTypes = prev.map((c) => c.type);
+        const inUseTypeIds = prev.map((c) => c.type.id);
+
         const availableTypes = characterTypes.filter(
-          (type) => !inUseTypes.includes(type)
+          (type) => !inUseTypeIds.includes(type.id)
         );
 
-        if (availableTypes.length === 0) return prev;
+        let type;
+        let updated;
 
-        const type =
-          availableTypes[Math.floor(Math.random() * availableTypes.length)];
+        if (availableTypes.length > 0) {
+          type =
+            availableTypes[Math.floor(Math.random() * availableTypes.length)];
 
-        const newCharacter = {
-          id: crypto.randomUUID(),
-          name,
-          type,
-        };
+          const newCharacter = {
+            id: crypto.randomUUID(),
+            name,
+            type,
+          };
 
-        const updated = [...prev, newCharacter];
+          updated = [...prev, newCharacter];
+        } else {
+          const indexToReplace = Math.floor(Math.random() * prev.length);
+
+          type = prev[indexToReplace].type;
+
+          const newCharacter = {
+            id: crypto.randomUUID(),
+            name,
+            type,
+          };
+
+          updated = [...prev];
+          updated[indexToReplace] = newCharacter;
+        }
+
         return updated.slice(-5);
       });
     };
