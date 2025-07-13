@@ -14,8 +14,8 @@ function CharacterSpawner() {
       const name = e.data;
 
       setCharacters((prev) => {
-        const inUseTypeIds = prev.map((c) => c.type.id);
-
+        const trimmed = prev.length >= maxCharacters ? prev.slice(1) : prev;
+        const inUseTypeIds = trimmed.map((c) => c.type.id);
         const availableTypes = characterTypes.filter(
           (type) => !inUseTypeIds.includes(type.id)
         );
@@ -33,11 +33,11 @@ function CharacterSpawner() {
             type,
           };
 
-          updated = [...prev, newCharacter];
+          updated = [...trimmed, newCharacter];
         } else {
-          const indexToReplace = Math.floor(Math.random() * prev.length);
+          const indexToReplace = Math.floor(Math.random() * trimmed.length);
 
-          type = prev[indexToReplace].type;
+          type = trimmed[indexToReplace].type;
 
           const newCharacter = {
             id: crypto.randomUUID(),
@@ -45,11 +45,11 @@ function CharacterSpawner() {
             type,
           };
 
-          updated = [...prev];
+          updated = [...trimmed];
           updated[indexToReplace] = newCharacter;
         }
 
-        return updated.slice(-maxCharacters);
+        return updated;
       });
     };
 
