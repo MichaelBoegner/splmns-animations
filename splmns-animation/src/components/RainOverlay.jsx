@@ -20,7 +20,6 @@ function RainOverlay() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Initialize drops
     const numDrops = 150;
     dropsRef.current = Array.from({ length: numDrops }, () => ({
       x: Math.random() * canvas.width,
