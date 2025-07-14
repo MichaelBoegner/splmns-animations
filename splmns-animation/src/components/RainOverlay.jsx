@@ -8,8 +8,14 @@ function RainOverlay() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const splashProbabilty = 0.75;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     const numDrops = 150;
     const drops = Array.from({ length: numDrops }, () => ({

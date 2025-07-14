@@ -1,16 +1,39 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Character.css";
 
 function Character({ name, type }) {
-  const startX = -300;
-  const endX = window.innerWidth + 300;
+  const width = window.innerWidth;
+  const height = width * (9 / 16);
+  const ampPercent = -0.55;
+  const [dimensions, setDimensions] = useState({
+    startX: -300,
+    endX: window.innerWidth + 300,
+    amplitude: ampPercent * height,
+  });
+  const { startX, endX, amplitude } = dimensions;
   const x = useMotionValue(startX);
-  const amplitude = -550;
   const theta = useTransform(x, [startX, endX], [0, Math.PI]);
   const arcY = useTransform(theta, (t) => amplitude * Math.sin(t));
   const className = type.movement === "ground" ? "sprite-ground" : "sprite-air";
   const y = type.movement === "air" ? arcY : 75;
+
+  useEffect(() => {
+    const updateDims = () => {
+      const newWidth = window.innerWidth;
+      const aspectHeight = newWidth * (9 / 16);
+
+      setDimensions({
+        startX: -300,
+        endX: newWidth + 300,
+        amplitude: ampPercent * aspectHeight,
+      });
+    };
+
+    updateDims(); // set once on mount
+    window.addEventListener("resize", updateDims);
+    return () => window.removeEventListener("resize", updateDims);
+  }, [startX, endX, amplitude, ampPercent]);
 
   const rotation = useTransform(theta, (t) => {
     const slope = amplitude * Math.cos(t);
