@@ -3,11 +3,14 @@ import "./RainOverlay.css";
 
 function RainOverlay() {
   const canvasRef = useRef();
+  const animationRef = useRef();
+  const dropsRef = useRef([]);
+  const splashesRef = useRef([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const splashProbabilty = 0.75;
+    const splashProbability = 0.75;
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -17,20 +20,21 @@ function RainOverlay() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    // Initialize drops
     const numDrops = 150;
-    const drops = Array.from({ length: numDrops }, () => ({
+    dropsRef.current = Array.from({ length: numDrops }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       speed: 4 + Math.random() * 4,
       color: Math.random() < 0.5 ? "white" : "blue",
     }));
 
-    const splashes = [];
+    splashesRef.current = [];
 
     function spawnSplash(x, y, color) {
       const count = 5 + Math.floor(Math.random() * 5);
       for (let i = 0; i < count; i++) {
-        splashes.push({
+        splashesRef.current.push({
           x,
           y,
           vx: (Math.random() - 0.5) * 4,
@@ -45,6 +49,9 @@ function RainOverlay() {
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const drops = dropsRef.current;
+      const splashes = splashesRef.current;
+
       drops.forEach((drop) => {
         ctx.beginPath();
         ctx.strokeStyle = drop.color;
@@ -55,7 +62,7 @@ function RainOverlay() {
 
         drop.y += drop.speed;
         if (drop.y > canvas.height) {
-          if (Math.random() < splashProbabilty) {
+          if (Math.random() < splashProbability) {
             spawnSplash(drop.x, canvas.height, drop.color);
           }
           drop.y = -10;
@@ -80,13 +87,14 @@ function RainOverlay() {
         }
       }
 
-      requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
     }
 
     animate();
 
     return () => {
-      cancelAnimationFrame(animate);
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 

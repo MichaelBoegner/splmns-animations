@@ -33,7 +33,7 @@ function Character({ name, type }) {
     updateDims(); // set once on mount
     window.addEventListener("resize", updateDims);
     return () => window.removeEventListener("resize", updateDims);
-  }, [startX, endX, amplitude, ampPercent]);
+  }, [ampPercent]);
 
   const rotation = useTransform(theta, (t) => {
     const slope = amplitude * Math.cos(t);
