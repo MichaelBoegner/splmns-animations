@@ -55,6 +55,7 @@ Accessible at `/display`
 ## AI Tools Used
 
 - **ChatGPT-4**: Assisted with boilerplate code, refining motion paths (flying arc), optimizing rendering performance, and writing this readme ^_^.
+- **Github Copilot**: Assisted with pull request reviews. 
 
 ---
 
