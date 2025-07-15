@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Character from "./Character";
+import getUpdatedCharacters from "../utils/characterUtils";
 import { characterTypes } from "../data/characterTypes";
 import "./CharacterSpawner.css";
 
@@ -12,45 +13,9 @@ function CharacterSpawner() {
 
     channel.onmessage = (e) => {
       const name = e.data;
-
-      setCharacters((prev) => {
-        const trimmed = prev.length >= maxCharacters ? prev.slice(1) : prev;
-        const inUseTypeIds = trimmed.map((c) => c.type.id);
-        const availableTypes = characterTypes.filter(
-          (type) => !inUseTypeIds.includes(type.id)
-        );
-
-        let type;
-        let updated;
-
-        if (availableTypes.length > 0) {
-          type =
-            availableTypes[Math.floor(Math.random() * availableTypes.length)];
-
-          const newCharacter = {
-            id: crypto.randomUUID(),
-            name,
-            type,
-          };
-
-          updated = [...trimmed, newCharacter];
-        } else {
-          const indexToReplace = Math.floor(Math.random() * trimmed.length);
-
-          type = trimmed[indexToReplace].type;
-
-          const newCharacter = {
-            id: crypto.randomUUID(),
-            name,
-            type,
-          };
-
-          updated = [...trimmed];
-          updated[indexToReplace] = newCharacter;
-        }
-
-        return updated;
-      });
+      setCharacters((prev) =>
+        getUpdatedCharacters(prev, maxCharacters, characterTypes, name)
+      );
     };
 
     return () => channel.close();
