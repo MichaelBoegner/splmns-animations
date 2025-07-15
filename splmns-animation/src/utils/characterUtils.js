@@ -42,6 +42,10 @@ export default function getUpdatedCharacters(
     }
   }
 
+  if (!type) {
+    type = characterTypes[Math.floor(Math.random() * characterTypes.length)];
+  }
+
   const newCharacter = {
     id: crypto.randomUUID(),
     name,
