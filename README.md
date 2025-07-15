@@ -76,3 +76,32 @@ Then visit:
 - Submit: [https://rainydays-two.vercel.app/submit](https://rainydays-two.vercel.app/submit)
 - Display: [https://rainydays-two.vercel.app/display](https://rainydays-two.vercel.app/display)
 
+## Retrospective
+
+### ✅ What Went Well
+- Implemented clean `getUpdatedCharacters()` logic with graceful exits.
+- Accounted for case when databank of available sprite types is only 5 or 6, avoiding duplicate sprite types and non-random behaviors. 
+- Created test cases that caught edge behavior.
+- Succeeded in immersive rain using a front and back rain layer. 
+- Generally maintained a good roadmap throughout, without having to backtrack on work. 
+
+### ⚠️ What Didn’t Go Well
+- Testing with an older machine resulted in misperceiving poor quality of animation, causing time to be wasted on unnecessarily trying alternative approaches to improve performance. 
+- Initially forgot to handle graceful exiting.
+- Probably could have scoped both the tech stack and architecture a bit better. 
+
+### 🧠 What I Learned
+- Thoughtful test coverage helps expose invisible bugs early.
+- Learned to avoid reference equality pitfalls by comparing type.id values instead of full objects, preventing accidental duplication or overwriting in state updates.
+
+### 🔁 What I’d Do Differently
+- Isolate `getUpdatedCharacters()` logic into a dedicated component sooner.
+- More deliberately document scoping at the beginning.
+- Test from a better machine. 
+- Maintain the Retrospective document along the way. 
+
+### 📈 Next Steps
+- Allow maintenance of characters' state onReload and maybe add a reset button. 
+- Add splashing for characters' feet. 
+- Add more sprites in databank. 
+- Add more testing. 
