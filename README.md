@@ -35,6 +35,7 @@ Accessible at `/display`
 - **Vite** – Fast bundling and development
 - **React Router** – Multi-view routing
 - **Vercel** - Deployment
+- **Vitest** - Unit testing
 
 ---
 
