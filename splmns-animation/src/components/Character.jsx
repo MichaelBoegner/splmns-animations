@@ -30,7 +30,7 @@ function Character({ name, type }) {
       });
     };
 
-    updateDims(); // set once on mount
+    updateDims();
     window.addEventListener("resize", updateDims);
     return () => window.removeEventListener("resize", updateDims);
   }, [ampPercent]);
