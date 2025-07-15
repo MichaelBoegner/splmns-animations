@@ -13,9 +13,24 @@ function CharacterSpawner() {
 
     channel.onmessage = (e) => {
       const name = e.data;
-      setCharacters((prev) =>
-        getUpdatedCharacters(prev, maxCharacters, characterTypes, name)
-      );
+
+      setCharacters((prev) => {
+        const updated = getUpdatedCharacters(
+          prev,
+          maxCharacters,
+          characterTypes,
+          name
+        );
+
+        const exiting = updated.filter((c) => c.isExiting);
+        exiting.forEach((char) => {
+          setTimeout(() => {
+            setCharacters((curr) => curr.filter((c) => c.id !== char.id));
+          }, 500);
+        });
+
+        return updated;
+      });
     };
 
     return () => channel.close();
@@ -24,7 +39,12 @@ function CharacterSpawner() {
   return (
     <div className="character-spawner-div">
       {characters.map((char) => (
-        <Character key={char.id} name={char.name} type={char.type} />
+        <Character
+          key={char.id}
+          name={char.name}
+          type={char.type}
+          isExiting={char.isExiting}
+        />
       ))}
     </div>
   );

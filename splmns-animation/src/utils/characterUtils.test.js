@@ -39,7 +39,7 @@ describe("getUpdatedCharacters", () => {
 
     const result = getUpdatedCharacters(prev, 5, mockTypes, "F");
 
-    expect(result.length).toBe(5);
+    expect(result.filter((c) => !c.isExiting).length).toBe(5);
     expect(result.find((c) => c.name === "F")).toBeDefined();
   });
 
@@ -53,7 +53,7 @@ describe("getUpdatedCharacters", () => {
 
     const result = getUpdatedCharacters(prev, maxCharacters, mockTypes, "G");
 
-    expect(result.length).toBe(maxCharacters);
+    expect(result.filter((c) => !c.isExiting).length).toBe(maxCharacters);
     expect(result.find((c) => c.name === "G")).toBeDefined();
   });
 
@@ -65,15 +65,11 @@ describe("getUpdatedCharacters", () => {
     }));
     const maxCharacters = mockTypes.length;
 
-    const result = getUpdatedCharacters(
-      prev,
-      maxCharacters,
-      mockTypes,
-      "Foxtrot"
-    );
+    const result = getUpdatedCharacters(prev, maxCharacters, mockTypes, "F");
 
-    const replaced = result.find((c) => c.name === "Foxtrot");
+    const replaced = result.find((c) => c.name === "F");
     expect(replaced).toBeDefined();
+    expect(typeof replaced.type?.id).toBe("string");
     expect(mockTypes.map((t) => t.id)).toContain(replaced.type.id);
   });
 

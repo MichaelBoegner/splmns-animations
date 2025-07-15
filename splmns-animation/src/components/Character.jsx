@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./Character.css";
 
-function Character({ name, type }) {
+function Character({ name, type, isExiting }) {
   const width = window.innerWidth;
   const height = width * (9 / 16);
   const ampPercent = -0.55;
@@ -64,7 +64,12 @@ function Character({ name, type }) {
   }, [x, startX, endX, type.speed]);
 
   return (
-    <motion.div style={{ x, y }} className="character">
+    <motion.div
+      style={{ x, y }}
+      className="character"
+      animate={{ opacity: isExiting ? 0 : 1 }}
+      transition={{ opacity: { duration: 0.5 } }}
+    >
       <div className="name">{name}</div>
       <motion.div
         className={className}
