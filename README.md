@@ -41,7 +41,6 @@ Accessible at `/display`
 
 ## Performance Notes
 
-- Animation is capped to 5 characters at a time.
 - Rain and splash loops are optimized with aging/removal of splash particles.
 - You may experience degraded performance on older machines, especially when multiple browser windows are open. For example, running this on my 2019 Intel Macbook results in some lag, but running it on my 2023 M2 Pro results in flawless animation.
 
@@ -80,7 +79,7 @@ Then visit:
 
 ### ✅ What Went Well
 - Implemented clean `getUpdatedCharacters()` logic with graceful exits.
-- Accounted for case when databank of available sprite types is only 5 or 6, avoiding duplicate sprite types and non-random behaviors. 
+- Accounted for case when database of available sprite types is only 5 or 6, avoiding duplicate sprite types and non-random selection. 
 - Created test cases that caught edge behavior.
 - Succeeded in immersive rain using a front and back rain layer. 
 - Generally maintained a good roadmap throughout, without having to backtrack on work. 
@@ -103,5 +102,5 @@ Then visit:
 ### 📈 Next Steps
 - Allow maintenance of characters' state onReload and maybe add a reset button. 
 - Add splashing for characters' feet. 
-- Add more sprites in databank. 
+- Add more sprites in database. 
 - Add more testing. 
